@@ -298,8 +298,8 @@ int uk_clone(struct clone_args *cl_args, size_t cl_args_len,
 	/* Sanity check that the UKTLS of the child is really a Unikraft TLS:
 	 * Do we find our magic on the TLS, is Bobo's banana there?
 	 */
-	UK_ASSERT(uk_thread_uktls_var(child, cl_uktls_magic)
-		  == CL_UKTLS_SANITY_MAGIC);
+	 __u32 magic = uk_thread_uktls_var(child, cl_uktls_magic);
+	UK_ASSERT(magic == CL_UKTLS_SANITY_MAGIC);
 #endif /* CONFIG_LIBUKDEBUG_ENABLE_ASSERT */
 
 	if (flags & CLONE_VFORK) {

@@ -702,6 +702,7 @@ struct uk_thread *uk_thread_create_container(struct uk_alloc *a,
 					     void *priv,
 					     uk_thread_dtor_t dtor)
 {
+	// UK_ASSERT(2 == 0);
 	struct uk_thread *t;
 	size_t t_size;
 	struct ukarch_ectx *ectx = NULL;
